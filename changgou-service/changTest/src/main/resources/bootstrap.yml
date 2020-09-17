@@ -1,0 +1,23 @@
+server:
+  port: 9099
+spring:
+  application:
+    name: baobanserver
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: 192.168.181.132:8848
+    sentinel:
+      datasource:
+        ds1:
+          nacos:
+            data-id: mz-sentinel
+            data-type: json
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+            server-addr: 192.168.181.132:8848
+      transport:
+        dashboard: localhost:8080
+  profiles:
+    active: dev

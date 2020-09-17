@@ -1,0 +1,27 @@
+server:
+  port: 18089
+spring:
+  application:
+    name: pay
+  rabbitmq:
+    host: 192.168.181.132
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+wxpay:
+  notify_url: http://www.itcast.cn #回调地址
+
+
+mq:
+  pay:
+    exchange:
+      order: exchange.order
+    queue:
+      order: queue.order
+    routing:
+      key: queue.order

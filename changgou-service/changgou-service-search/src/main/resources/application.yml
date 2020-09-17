@@ -1,0 +1,44 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: search
+
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 192.168.181.132:9300
+  thymeleaf:
+    cache: false
+  main:
+    allow-bean-definition- overriding: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+
+##hystrix 配置
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          #如果enabled设置为false，则请求超时交给ribbon控制
+#          enabled: false
+#        isolation:
+#          strategy: SEMAPHORE
+#防止服务超时,此处设置为6秒，时长自定义
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+        timeout:
+          enabled: false

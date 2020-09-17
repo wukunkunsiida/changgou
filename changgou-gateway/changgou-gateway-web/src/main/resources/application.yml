@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: changgo_user_route
+          uri: http://localhost:18087
+          predicates:
+             - Path=/user/**
+          filters:
+             - StripPrefix=1
+        - id: changgo_order_route
+          uri: http://localhost:18088
+          predicates:
+             - Path=/order/**
+          filters:
+             - StripPrefix=1
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
