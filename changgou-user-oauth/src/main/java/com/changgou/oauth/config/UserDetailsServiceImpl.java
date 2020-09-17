@@ -24,11 +24,13 @@ import java.util.Map;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+
     @Autowired
     ClientDetailsService clientDetailsService;
 
 //    @Autowired
 //    UserFeign userFeign;
+
 
     /****
      * 自定义授权认证
