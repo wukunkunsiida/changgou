@@ -25,6 +25,7 @@ import javax.sql.DataSource;
 import java.security.KeyPair;
 
 
+
 @Configuration
 @EnableAuthorizationServer
 class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
