@@ -1,5 +1,7 @@
 package entity;
 
+import com.sun.nio.zipfs.ZipInfo;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,21 +26,43 @@ public class Test {
 //            }
 //            c.put(nums[i],i);
 //        }
-        int[] nums={1,1,2,3};
-        int low = 1, high = nums.length;
-        while (low < high) {
-           int mid =(int)(low + (high - low) * 0.5);
-            int cnt = 0;
-            for(int i = 0; i < nums.length; i++){
-                if(nums[i] <= mid){
-                    cnt++;
-                }
-                if (cnt <= mid) low = mid + 1;
-                else high = mid;
-            }
-            System.out.println(low);
+        Object object = new Object();
+        System.out.println(object.getClass().getClassLoader());
+
+        ZipInfo zipInfo = new ZipInfo();
+        System.out.println(zipInfo.getClass().getClassLoader());
+
+        System.out.println(Test.class.getClassLoader());
+   // }
+
+  //  public class Test {
+
+       // public static void main(String[] args) {
+            new Test().method1();
         }
 
-    }
+        public void method1() {
+            System.out.println("method1 start");
+            method2();
+            System.out.println("method1 finish");
+        }
+
+        private void method2() {
+            System.out.println("method2 start");
+            method3();
+            System.out.println("method2 finish");
+        }
+
+        private void method3() {
+            System.out.println("method3 start");
+            method4();
+            System.out.println("method3 finish");
+        }
+
+        private void method4() {
+            System.out.println("method4 start");
+            System.out.println("method4 finish");
+        }
+
 
 }
