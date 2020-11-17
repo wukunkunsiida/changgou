@@ -24,6 +24,9 @@ public class Test {
 //            }
 //            c.put(nums[i],i);
 //        }
+
+
+
         int[] nums={1,1,2,3};
         int low = 1, high = nums.length;
         while (low < high) {
